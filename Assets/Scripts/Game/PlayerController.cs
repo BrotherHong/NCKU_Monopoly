@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] List<Transform> playerTransform;
     [SerializeField] float playerMovingSpeed;
     [SerializeField] Transform gamePlatform;
+    [SerializeField] float moveError;
 
     List<Player> players;
     PlatformHelper platformHelper;
-    bool reached = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,26 +23,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (GameStats.currentState == GameState.NEXT_PLAYER)
-        {
-
-            return;
-        }
-
         if (GameStats.currentState == GameState.MOVE)
         {
             if (GameStats.UI.DiceResult == 0)
             {
-                GameStats.currentState = GameState.ROLL_DICE; // for test, should be EXE FEATURE
+                GameStats.currentState = GameState.EXECUTE_FEATURE;
+                GameSettings.cameraDirection = CameraDirection.CLOSE_PLAYER;
                 return;
             }
 
             int playerIndex = GameStats.CurrentPlayerIndex;
             Vector3 destPoint = platformHelper.GetWalkingPoint((players[playerIndex].StandingPos + 1) % 32).position;
+            destPoint.y = playerTransform[playerIndex].position.y;
             Vector3 playerPos = playerTransform[playerIndex].position;
             
-            if (MyTools.Distance2D(playerPos, destPoint) > 0.1)
+            if (MyTools.Distance2D(playerPos, destPoint) > (GameStats.UI.DiceResult > 1 ? moveError : 0.3))
             {
                 Vector3 temp = (destPoint - playerPos);
                 Vector3 dirToDest = new Vector3(temp.x, 0, temp.z).normalized;
@@ -51,7 +46,10 @@ public class PlayerController : MonoBehaviour
             {
                 GameStats.UI.DiceResult--;
                 players[playerIndex].StandingPos = (players[playerIndex].StandingPos + 1) % 32;
-
+                if (players[playerIndex].StandingPos % 8 == 0)
+                {
+                    playerTransform[playerIndex].Rotate(new Vector3(0, 90, 0));
+                }
             }
             return;
         }

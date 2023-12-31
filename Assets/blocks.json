@@ -1,0 +1,420 @@
+{
+    "blocks": [
+        {
+            "Type": "Dorm",
+            "Name": "宿舍",
+            "Color": "#FB8B24",
+            "Message": "回到宿舍啦!"
+        },
+        {
+            "Type": "Department",
+            "Name": "資訊系",
+            "Courses": [
+                {
+                    "Name": "程式設計(一)",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "視窗程式設計",
+                    "Type": "選修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "電機系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Event_bfgf",
+            "Name": "交到男/女朋友",
+            "Color": "#9400FF",
+            "Message": "交到男女朋友好開心!"
+        },
+        {
+            "Type": "Destiny",
+            "Name": "命運",
+            "Color": "#5CD2E6",
+            "Message": "你遇到了一個難以預測的命運，看看是什麼呢?"
+        },
+        {
+            "Type": "Department",
+            "Name": "牙醫系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "機械系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "None",
+            "Name": "成功湖",
+            "Color": "#6499E9",
+            "Message": "想進去游泳嗎?"
+        },
+        {
+            "Type": "Hospital",
+            "Name": "醫院",
+            "Color": "#FFFFFF",
+            "Message": "最好不要來這邊。"
+        },
+        {
+            "Type": "Department",
+            "Name": "中文系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "台文系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "外文系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Chance",
+            "Name": "機會",
+            "Color": "#BF3131",
+            "Message": "你遇到了一個難得的機會，看看是什麼呢?"
+        },
+        {
+            "Type": "Department",
+            "Name": "建築系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "None",
+            "Name": "榕園",
+            "Color": "#005B41",
+            "Message": "成大的拍照聖地。"
+        },
+        {
+            "Type": "Event_construct",
+            "Name": "施工",
+            "Color": "#9400FF",
+            "Message": "怎麼又再施工?"
+        },
+        {
+            "Type": "Libarary",
+            "Name": "圖書館",
+            "Color": "#9A3B3B",
+            "Message": "認真讀書!"
+        },
+        {
+            "Type": "Department",
+            "Name": "企管系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "工設系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Event_bike",
+            "Name": "腳踏車禍",
+            "Color": "#9400FF",
+            "Message": "阿!在騎腳踏車的時候不小心和別人相撞了..."
+        },
+        {
+            "Type": "Destiny",
+            "Name": "命運",
+            "Color": "#5CD2E6",
+            "Message": "你遇到了一個難以預測的命運，看看是什麼呢?"
+        },
+        {
+            "Type": "Department",
+            "Name": "工資系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "藥學系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "護理系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Playground",
+            "Name": "操場",
+            "Color": "#FFBB5C",
+            "Message": "運動健康身體好!"
+        },
+        {
+            "Type": "Department",
+            "Name": "法律系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "統計系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Department",
+            "Name": "化工系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Chance",
+            "Name": "機會",
+            "Color": "#BF3131",
+            "Message": "你遇到了一個難得的機會，看看是什麼呢?"
+        },
+        {
+            "Type": "Department",
+            "Name": "醫學系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        },
+        {
+            "Type": "Event_dog",
+            "Name": "被狗咬",
+            "Color": "#9400FF",
+            "Message": "怎麼有流浪狗啦，他還跑來咬我欸"
+        },
+        {
+            "Type": "Department",
+            "Name": "航太系",
+            "Courses": [
+                {
+                    "Name": "電子學",
+                    "Type": "必修",
+                    "Credit": 3
+                },
+                {
+                    "Name": "電路學",
+                    "Type": "必修",
+                    "Credit": 3
+                }
+            ],
+            "Color": "#B6BBC4"
+        }
+    ],
+    "chances": [
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
+        }
+    ],
+    "destinies": [
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
+        }
+    ]
+}

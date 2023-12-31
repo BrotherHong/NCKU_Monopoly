@@ -14,8 +14,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] List<Transform> playerTransform;
 
     [SerializeField] Vector3 offsetFromPlayer;
+    [SerializeField] Vector3 closeOffsetFromPlayer;
 
-    [SerializeField] float movingSpeed;
+    [SerializeField] float movingProportion;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +33,12 @@ public class CameraController : MonoBehaviour
 
 
         // Move to the target position smoothly
-        MoveAndFaceAtTarget(moveToPosition, targetPosition);
+        MoveAndFaceAtTargetSmooth(moveToPosition, targetPosition);
     }
 
-    private void MoveAndFaceAtTarget(Vector3 moveTo, Vector3 target)
+    private void MoveAndFaceAtTargetSmooth(Vector3 moveTo, Vector3 target)
     {
-        transform.position = Vector3.Lerp(transform.position, moveTo, (movingSpeed * Time.deltaTime));
+        transform.position = Vector3.Lerp(transform.position, moveTo, movingProportion);
         transform.LookAt(target);
     }
 
@@ -49,7 +50,8 @@ public class CameraController : MonoBehaviour
             case CameraDirection.HOSTPITAL: return hospitalCameraPosition;
             case CameraDirection.LIBRARY: return libraryCameraPosition;
             case CameraDirection.PARK: return parkCameraPosition;
-            case CameraDirection.PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position + offsetFromPlayer;
+            case CameraDirection.PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position + (playerTransform[GameStats.CurrentPlayerIndex].rotation * offsetFromPlayer);
+            case CameraDirection.CLOSE_PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position + (playerTransform[GameStats.CurrentPlayerIndex].rotation * closeOffsetFromPlayer);
         }
 
         return Vector3.zero;
@@ -63,7 +65,8 @@ public class CameraController : MonoBehaviour
             case CameraDirection.HOSTPITAL: 
             case CameraDirection.LIBRARY: 
             case CameraDirection.PARK: return centerReference.position;
-            case CameraDirection.PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position;
+            case CameraDirection.PLAYER:
+            case CameraDirection.CLOSE_PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position;
         }
 
         return Vector3.zero;

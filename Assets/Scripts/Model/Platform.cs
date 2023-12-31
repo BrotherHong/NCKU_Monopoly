@@ -1,18 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class Platform
 {
-    private List<Block> blocks;
-
-    public Platform()
-    {
-        blocks = new List<Block>();
-        InitBlock();
-    }
-
-    private void InitBlock()
-    {
-
-    }
+    public Block[] blocks;
+    public Chance[] chances;
+    public Destiny[] destinies;
 }
