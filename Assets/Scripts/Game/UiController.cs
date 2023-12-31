@@ -158,10 +158,10 @@ public class UiController : MonoBehaviour
         name.text = course.Name;
         type.text = course.Type;
         credit.text = course.Credit.ToString();
-        owner.text = (course.Owner == null ? "µL" : course.Owner);
-        condition.text = "µL";
-        select.text = (course.Owner == null ? "øÔΩ“" : "∂RΩ“");
-        selectCost.text = "≈È§O -10";
+        owner.text = (course.Owner == null ? "ÁÑ°" : course.Owner);
+        condition.text = "ÁÑ°";
+        select.text = (course.Owner == null ? "ÈÅ∏Ë™≤" : "Êê∂Ë™≤");
+        selectCost.text = $"È´îÂäõ -{GameSettings.SELECT_COURSE_POWER_COST}";
     }
 
     private void SetupInfoBox(Block block)
@@ -192,13 +192,13 @@ public class UiController : MonoBehaviour
                 sb.Append(" - ");
                 if (reward.Emotion != 0)
                 {
-                    sb.Append("§ﬂ±° " + string.Format("{0:+#;-#}", reward.Emotion));
+                    sb.Append("ÂøÉÊÉÖ " + string.Format("{0:+#;-#}", reward.Emotion));
                 }
                 sb.AppendLine();
                 sb.Append(" - ");
                 if (reward.Power != 0)
                 {
-                    sb.Append("≈È§O " + string.Format("{0:+#;-#}", reward.Power));
+                    sb.Append("È´îÂäõ " + string.Format("{0:+#;-#}", reward.Power));
                 }
                 sb.AppendLine();
             }

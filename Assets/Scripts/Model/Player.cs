@@ -9,7 +9,8 @@ public class Player
     public int Power { get; set; }
     public string ImagePath { get; set; }
     public int StandingPos { get; set; }
-    public List<Course> Courses { get; set; }
+    public List<Course> CurrentCourse { get; set; }
+    public List<Course> CourseHistory { get; set; }
 
     public Player(string name, string imagePath)
     {
@@ -19,6 +20,7 @@ public class Player
         Power = GameSettings.MAX_POWER;
         ImagePath = imagePath;
         StandingPos = 0;
-        Courses = new List<Course>();
+        CurrentCourse = new List<Course>();
+        CourseHistory = new List<Course>();
     }
 }

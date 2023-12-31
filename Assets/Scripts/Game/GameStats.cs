@@ -20,6 +20,11 @@ public static class GameStats
         return _players;
     }
 
+    public static Player GetCurrentPlayer()
+    {
+        return _players[CurrentPlayerIndex];
+    }
+
     public static class UI
     {
         public static int DiceResult = 0;

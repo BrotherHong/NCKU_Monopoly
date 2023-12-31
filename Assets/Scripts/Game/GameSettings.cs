@@ -18,5 +18,6 @@ public static class GameSettings
     public static readonly int TARGET_CREDIT = 130;
     public static readonly int MAX_EMOTION = 10;
     public static readonly int MAX_POWER = 100;
+    public static readonly int SELECT_COURSE_POWER_COST = 10;
     public static CameraDirection cameraDirection = CameraDirection.PLAYER;
 }

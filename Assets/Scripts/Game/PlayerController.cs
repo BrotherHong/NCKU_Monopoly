@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float playerMovingSpeed;
     [SerializeField] Transform gamePlatform;
     [SerializeField] float moveError;
+    [SerializeField] GameExecutor gameExecutor;
 
     List<Player> players;
     PlatformHelper platformHelper;
@@ -49,6 +50,10 @@ public class PlayerController : MonoBehaviour
                 if (players[playerIndex].StandingPos % 8 == 0)
                 {
                     playerTransform[playerIndex].Rotate(new Vector3(0, 90, 0));
+                }
+                if (players[playerIndex].StandingPos == 0)
+                {
+                    gameExecutor.OnPlayerBackToStart(players[playerIndex]);
                 }
             }
             return;
