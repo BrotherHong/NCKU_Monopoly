@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameExecutor : MonoBehaviour
 {
+    [SerializeField] PlatformHelper platformHelper;
 
     public void RollTheDice()
     {
@@ -34,5 +35,34 @@ public class GameExecutor : MonoBehaviour
     {
         player.Emotion = Math.Max(0, Math.Min(GameSettings.MAX_EMOTION, player.Emotion));
         player.Power = Math.Max(0, Math.Min(GameSettings.MAX_POWER, player.Power));
+    }
+
+    public void OnPlayerBackToStart(Player player)
+    {
+        player.Power = GameSettings.MAX_POWER;
+        player.Emotion += 3;
+        foreach (Course course in player.CurrentCourse)
+        {
+            player.Credit += course.Credit;
+            player.CourseHistory.Add(course);
+            course.ResetOwner();
+        }
+        player.CurrentCourse.Clear();
+        FixPlayerStats(player);
+    }
+
+    public void SelectCourse(int courseIndex)
+    {
+        Player player = GameStats.GetCurrentPlayer();
+        Block block = platformHelper.GetBlock(player.StandingPos);
+        Course course = block.Courses[(courseIndex == 1 ? block.course1 : block.course2)];
+
+        if (player.Power < GameSettings.SELECT_COURSE_POWER_COST) return;
+        if (course.Owner != null) return; 
+        
+        course.Owner = player.Name;
+        player.CurrentCourse.Add(course);
+        player.Power -= GameSettings.SELECT_COURSE_POWER_COST;
+        FixPlayerStats(player);
     }
 }

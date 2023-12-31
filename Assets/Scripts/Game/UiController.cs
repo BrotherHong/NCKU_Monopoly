@@ -160,8 +160,8 @@ public class UiController : MonoBehaviour
         credit.text = course.Credit.ToString();
         owner.text = (course.Owner == null ? "無" : course.Owner);
         condition.text = "無";
-        select.text = (course.Owner == null ? "選課" : "買課");
-        selectCost.text = "體力 -10";
+        select.text = (course.Owner == null ? "選課" : "搶課");
+        selectCost.text = $"體力 -{GameSettings.SELECT_COURSE_POWER_COST}";
     }
 
     private void SetupInfoBox(Block block)

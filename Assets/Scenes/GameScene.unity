@@ -411,6 +411,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 862946930}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCourse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameExecutor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8136631666147188832, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
       propertyPath: m_Name
       value: Course2
@@ -1417,6 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021cfad242dd3684d9943c252450d2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformHelper: {fileID: 1995493660}
 --- !u!4 &862946931
 Transform:
   m_ObjectHideFlags: 0
@@ -1810,6 +1843,7 @@ MonoBehaviour:
   playerMovingSpeed: 15
   gamePlatform: {fileID: 1995493659}
   moveError: 1.5
+  gameExecutor: {fileID: 862946930}
 --- !u!4 &1004476619
 Transform:
   m_ObjectHideFlags: 0
@@ -3068,6 +3102,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6126103504800579022, guid: 2d5a4681788e10341a5e9e8dfb0ca364, type: 3}
   m_PrefabInstance: {fileID: 769492494352040265}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1995493660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7807187359578205502, guid: 2d5a4681788e10341a5e9e8dfb0ca364, type: 3}
+  m_PrefabInstance: {fileID: 769492494352040265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d8d1316c83d5449b726c916f016eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098471305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3424,38 @@ PrefabInstance:
     - target: {fileID: 7549184740623171880, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 862946930}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCourse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameExecutor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069280977975074370, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8136631666147188832, guid: 29e35153c8131694fbe24495f1dd13d1, type: 3}
       propertyPath: m_Name
