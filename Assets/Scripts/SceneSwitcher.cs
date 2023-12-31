@@ -18,4 +18,12 @@ public class SceneSwitcher : MonoBehaviour, IPointerClickHandler
         }
         SceneManager.LoadScene(destinationSceneIndex);
     }
+
+    public void GameOver_MainMenu_Click()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene("MenuScene");
+    }
+
 }

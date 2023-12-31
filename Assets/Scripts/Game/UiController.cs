@@ -12,7 +12,7 @@ public class UiController : MonoBehaviour
     [SerializeField] Text diceResult;
     // Roll Dice Button
     [SerializeField] Button diceButton;
-    // Done Button;
+    // Done Button
     [SerializeField] Button doneButton;
     // CourseBox
     [SerializeField] Text courseBoxTitle;

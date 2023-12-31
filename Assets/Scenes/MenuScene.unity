@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c33731c9511c114f8f5d3c495bb44af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationSceneIndex: 1
+  destinationSceneIndex: 3
   exitMode: 0
 --- !u!1 &800174554
 GameObject:
