@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,15 +22,20 @@ public class UiController : MonoBehaviour
     // Info Box
     [SerializeField] Text infoBoxTitle;
     [SerializeField] Text infoContent;
+    // Summary Box
+    [SerializeField] Transform summaryPanel;
     // Platform Transform
     [SerializeField] Transform platformTransform;
     // Game Executor
     [SerializeField] Transform executorTransform;
+    // Player Controller
+    [SerializeField] Transform playerControllerTransform;
 
     List<Player> playerList;
     Animator animator;
     PlatformHelper platformHelper;
     GameExecutor gameExecutor;
+    PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +54,7 @@ public class UiController : MonoBehaviour
         animator = GetComponent<Animator>();
         platformHelper = platformTransform.GetComponent<PlatformHelper>();
         gameExecutor = executorTransform.GetComponent<GameExecutor>();
+        playerController = playerControllerTransform.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -74,7 +81,7 @@ public class UiController : MonoBehaviour
             Block block = GetCurrentBlock();
             if (block.Type == "Department")
             {
-                SetupCourseBox(block);
+                SetupCourseBox(block, currentPlayer);
                 animator.SetBool("CourseBoxOpen", true);
             } else
             {
@@ -85,6 +92,36 @@ public class UiController : MonoBehaviour
         {
             animator.SetBool("CourseBoxOpen", false);
             animator.SetBool("InfoBoxOpen", false);
+        }
+
+        // Pass Starting point
+        if (GameStats.currentState == GameState.PASS_START)
+        {
+            // TODO: display summary form
+            Player currentPlayer = GetCurrentPlayer();
+            SetupSummaryBox(currentPlayer);
+            animator.SetBool("SummaryBoxOpen", true);
+        } else
+        {
+            animator.SetBool("SummaryBoxOpen", false);
+        }
+
+        // check if player is EMO or whatever
+        if (GameStats.currentState == GameState.CHECK)
+        {
+            Player currentPlayer = GetCurrentPlayer();
+            if (currentPlayer.IsEMO())
+            {
+                // TODO: display check form to notificate player and execute the movement
+                animator.SetBool("CheckBoxOpen", true);
+            }
+            else
+            {
+                GameStats.currentState = GameState.ROLL_DICE;
+            }
+        } else
+        {
+            animator.SetBool("CheckBoxOpen", false);
         }
     }
 
@@ -101,6 +138,23 @@ public class UiController : MonoBehaviour
         if (block.specialEvent != null) gameExecutor.ExecuteRewards(currentPlayer, block.specialEvent.Rewards);
         GameStats.currentState = GameState.NEXT_PLAYER;
         animator.SetBool("InfoBoxOpen", false);
+    }
+
+    public void CloseSummaryBox()
+    {
+        Player currentPlayer = GetCurrentPlayer();
+        gameExecutor.OnPlayerPassStart(currentPlayer);
+        animator.SetBool("SummaryBoxOpen", false);
+        GameStats.currentState = GameState.MOVE; // keep moving
+    }
+
+    public void CloseCheckBox()
+    {
+        Player currentPlayer = GetCurrentPlayer();
+        animator.SetBool("CheckBoxOpen", false);
+        playerController.TeleportPlayerToCorner(GameStats.CurrentPlayerIndex, CornerBlock.DORM);
+        gameExecutor.ExecuteEmoPenalty(currentPlayer);
+        GameStats.currentState = GameState.NEXT_PLAYER;
     }
 
     public void GoToNextCamera()
@@ -132,14 +186,14 @@ public class UiController : MonoBehaviour
         }
     }
 
-    private void SetupCourseBox(Block block)
+    private void SetupCourseBox(Block block, Player currentPlayer)
     {
         courseBoxTitle.text = block.Name;
-        LoadCourse(1, block);
-        LoadCourse(2, block);
+        LoadCourse(1, block, currentPlayer);
+        LoadCourse(2, block, currentPlayer);
     }
 
-    private void LoadCourse(int courseNumber, Block block)
+    private void LoadCourse(int courseNumber, Block block, Player currentPlayer)
     {
         Transform courseTrans = (courseNumber == 1 ? course1 : course2);
         int courseIndex = (courseNumber == 1 ? block.course1 : block.course2);
@@ -158,10 +212,10 @@ public class UiController : MonoBehaviour
         name.text = course.Name;
         type.text = course.Type;
         credit.text = course.Credit.ToString();
-        owner.text = (course.Owner == null ? "無" : course.Owner);
+        owner.text = course.Owner ?? "無";
         condition.text = "無";
-        select.text = (course.Owner == null ? "選課" : "搶課");
-        selectCost.text = $"體力 -{GameSettings.SELECT_COURSE_POWER_COST}";
+        select.text = (course.Owner == null ? "選課" : (course.Owner == currentPlayer.Name ? "已選" : "搶課"));
+        selectCost.text = (course.Owner == null ? $"體力 -{GameSettings.SELECT_COURSE_POWER_COST}" : (course.Owner == currentPlayer.Name ? "" : $"體力 -{currentPlayer.GetGrabCost()}"));
     }
 
     private void SetupInfoBox(Block block)
@@ -172,12 +226,23 @@ public class UiController : MonoBehaviour
             SpecialEvent spEvent = null;
             if (block.Type == "Chance") spEvent = platformHelper.GetRandomChance();
             else if (block.Type == "Destiny") spEvent = platformHelper.GetRandomDestiny();
+            else if (block.Type.StartsWith("Event"))
+            {
+                Debug.Log("Special Event");
+                WalkingEventType walkEvent = WalkingEventType.BG_FRIEND;
+                if (block.Type.EndsWith("bfgf")) walkEvent = WalkingEventType.BG_FRIEND;
+                else if (block.Type.EndsWith("construct")) walkEvent = WalkingEventType.CONSTRUCTION;
+                else if (block.Type.EndsWith("bike")) walkEvent = WalkingEventType.BIKE_ACCIDENT;
+                else if (block.Type.EndsWith("dog")) walkEvent = WalkingEventType.DOG_BITE;
+                spEvent = platformHelper.GetSpecialWalkingEvent(walkEvent);
+            }
+            Debug.Log($"spEvent: null? {spEvent == null}");
             block.specialEvent = spEvent;
-            infoContent.text = CreateInfoMessage(block);
+            infoContent.text = CreateInfoBoxMessage(block);
         }
     }
 
-    private string CreateInfoMessage(Block block)
+    private string CreateInfoBoxMessage(Block block)
     {
         SpecialEvent spEvent = block.specialEvent;
         StringBuilder sb = new StringBuilder();
@@ -187,22 +252,68 @@ public class UiController : MonoBehaviour
             sb.AppendLine("-------------------------------------------------");
             sb.AppendLine(spEvent.Title);
             sb.AppendLine("  " + spEvent.Message);
+            sb.AppendLine();
             foreach (Reward reward in spEvent.Rewards)
             {
-                sb.Append(" - ");
-                if (reward.Emotion != 0)
+                if (reward.Mode == "Add")
                 {
-                    sb.Append("心情 " + string.Format("{0:+#;-#}", reward.Emotion));
-                }
-                sb.AppendLine();
-                sb.Append(" - ");
-                if (reward.Power != 0)
+                    if (reward.Emotion != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("心情 " + string.Format("{0:+#;-#}", reward.Emotion));
+                        sb.AppendLine();
+                    }
+                    
+                    if (reward.Power != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("體力 " + string.Format("{0:+#;-#}", reward.Power));
+                        sb.AppendLine();
+                    }
+                } else if (reward.Mode == "Teleport")
                 {
-                    sb.Append("體力 " + string.Format("{0:+#;-#}", reward.Power));
+                    sb.Append($" - 被移動至 {MyTools.TranslateCorner(reward.TpTarget)}");
+                    sb.AppendLine();
                 }
-                sb.AppendLine();
             }
         }
+        return sb.ToString();
+    }
+
+    private void SetupSummaryBox(Player player)
+    {
+        Image iconImage = summaryPanel.Find("PlayerImage").GetComponent<Image>();
+        Text name = summaryPanel.Find("PlayerName").GetComponent<Text>();
+        Text info = summaryPanel.Find("PlayerInfo").GetComponent<Text>();
+        Text infoDelta = summaryPanel.Find("InfoDelta").GetComponent<Text>();
+        Text courses = summaryPanel.Find("SelectedCourses").Find("Viewport").Find("Content").GetComponent<Text>();
+
+        iconImage.sprite = Resources.Load<Sprite>(player.ImagePath);
+        name.text = player.Name;
+        info.text = CreatePlayerInfoText(player);
+        infoDelta.text = CreateInfoDeltaText(player);
+        courses.text = player.GetCurrentCoursesText();
+    }
+
+    private string CreatePlayerInfoText(Player player)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"學分：{player.Credit}");
+        sb.AppendLine();
+        sb.AppendLine($"心情：{player.Emotion}");
+        sb.AppendLine();
+        sb.AppendLine($"體力：{player.Power}");
+        return sb.ToString();
+    }
+
+    private string CreateInfoDeltaText(Player player)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"(+{player.CurrentCourse.Sum(c => c.Credit)})");
+        sb.AppendLine();
+        sb.AppendLine("(+5)");
+        sb.AppendLine();
+        sb.AppendLine("(100)");
         return sb.ToString();
     }
 

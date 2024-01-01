@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameExecutor : MonoBehaviour
 {
     [SerializeField] PlatformHelper platformHelper;
+    [SerializeField] PlayerController playerController;
 
     public void RollTheDice()
     {
@@ -17,7 +18,7 @@ public class GameExecutor : MonoBehaviour
     public void ChangeToNextPlayer()
     {
         GameStats.CurrentPlayerIndex = (GameStats.CurrentPlayerIndex + 1) % GameSettings.MAX_PLAYER;
-        GameStats.currentState = GameState.ROLL_DICE;
+        GameStats.currentState = GameState.CHECK;
         GameSettings.cameraDirection = CameraDirection.PLAYER;
     }
 
@@ -25,8 +26,19 @@ public class GameExecutor : MonoBehaviour
     {
         foreach (Reward reward in rewards)
         {
-            player.Emotion += reward.Emotion;
-            player.Power += reward.Power;
+            if (reward.Mode == "Add")
+            {
+                player.Emotion += reward.Emotion;
+                player.Power += reward.Power;
+            } else if (reward.Mode == "Teleport")
+            {
+                CornerBlock corner = CornerBlock.DORM;
+                if (reward.TpTarget == "Dorm") corner = CornerBlock.DORM;
+                else if (reward.TpTarget == "Hospital") corner = CornerBlock.HOSPITAL;
+                else if (reward.TpTarget == "Library") corner = CornerBlock.LIRBARY;
+                else if (reward.TpTarget == "Playground") corner = CornerBlock.PLAYGROUND;
+                playerController.TeleportPlayerToCorner(GameStats.CurrentPlayerIndex, corner);
+            }
         }
         FixPlayerStats(player);
     }
@@ -37,10 +49,10 @@ public class GameExecutor : MonoBehaviour
         player.Power = Math.Max(0, Math.Min(GameSettings.MAX_POWER, player.Power));
     }
 
-    public void OnPlayerBackToStart(Player player)
+    public void OnPlayerPassStart(Player player)
     {
         player.Power = GameSettings.MAX_POWER;
-        player.Emotion += 3;
+        player.Emotion += 5;
         foreach (Course course in player.CurrentCourse)
         {
             player.Credit += course.Credit;
@@ -57,12 +69,37 @@ public class GameExecutor : MonoBehaviour
         Block block = platformHelper.GetBlock(player.StandingPos);
         Course course = block.Courses[(courseIndex == 1 ? block.course1 : block.course2)];
 
-        if (player.Power < GameSettings.SELECT_COURSE_POWER_COST) return;
-        if (course.Owner != null) return; 
+        int powerCost;
+        bool grab = false;
+        if (course.Owner == null)
+        {
+            powerCost = GameSettings.SELECT_COURSE_POWER_COST;
+        } else
+        {
+            if (course.Owner == player.Name) return;
+            powerCost = player.GetGrabCost();
+            grab = true;
+        }
+
+        if (player.Power < powerCost) return;
+
+        if (grab)
+        {
+            Player origOwner = GameStats.GetPlayerByName(course.Owner);
+            player.GrabCount++;
+            origOwner.CurrentCourse.Remove(course);
+        }
         
         course.Owner = player.Name;
         player.CurrentCourse.Add(course);
-        player.Power -= GameSettings.SELECT_COURSE_POWER_COST;
+        player.Power -= powerCost;
         FixPlayerStats(player);
+    }
+
+    public void ExecuteEmoPenalty(Player player)
+    {
+        player.ResetRoundStats();
+        player.CurrentCourse.ForEach(c => c.ResetOwner());
+        player.CurrentCourse.Clear();
     }
 }

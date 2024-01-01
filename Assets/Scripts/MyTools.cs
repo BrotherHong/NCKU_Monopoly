@@ -24,4 +24,13 @@ public static class MyTools
 
         return new Color(r/255f, g/255f, b/255f);
     }
+
+    public static string TranslateCorner(string corner)
+    {
+        if (corner == "Dorm") return "宿舍";
+        else if (corner == "Hospital") return "醫院";
+        else if (corner == "Library") return "圖書館";
+        else if (corner == "Playground") return "操場";
+        return "";
+    }
 }

@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public enum GameState {
+    CHECK,
     ROLL_DICE,
+    PASS_START,
     MOVE,
     EXECUTE_FEATURE,
     NEXT_PLAYER,
@@ -11,7 +13,7 @@ public enum GameState {
 public static class GameStats
 {
     public static int CurrentPlayerIndex = 0;
-    public static GameState currentState = GameState.ROLL_DICE;
+    public static GameState currentState = GameState.CHECK;
 
     private static List<Player> _players = new List<Player>();
 
@@ -23,6 +25,11 @@ public static class GameStats
     public static Player GetCurrentPlayer()
     {
         return _players[CurrentPlayerIndex];
+    }
+
+    public static Player GetPlayerByName(string name)
+    {
+        return _players.Find(p => p.Name == name);
     }
 
     public static class UI

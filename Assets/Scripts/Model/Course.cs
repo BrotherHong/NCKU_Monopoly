@@ -16,6 +16,6 @@ public class Course
 
     public override string ToString()
     {
-        return $"{Name}/{Type}/{Credit}/{Owner}";
+        return $"{Name}/{Type}/{Credit}¾Ç¤À";
     }
 }

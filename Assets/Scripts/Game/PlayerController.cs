@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -53,10 +54,28 @@ public class PlayerController : MonoBehaviour
                 }
                 if (players[playerIndex].StandingPos == 0)
                 {
-                    gameExecutor.OnPlayerBackToStart(players[playerIndex]);
+                    GameStats.currentState = GameState.PASS_START;
                 }
             }
             return;
         }
+    }
+
+    public void TeleportPlayerToCorner(int playerIndex, CornerBlock corner)
+    {
+        int blockIndex = 0;
+        switch (corner)
+        {
+            case CornerBlock.DORM: blockIndex = 0; break;
+            case CornerBlock.HOSPITAL: blockIndex = 8; break;
+            case CornerBlock.LIRBARY: blockIndex = 16; break;
+            case CornerBlock.PLAYGROUND: blockIndex = 24; break;
+        }
+        Transform trans = playerTransform[playerIndex];
+        Vector3 destPoint = platformHelper.GetWalkingPoint(blockIndex).position;
+        destPoint.y = trans.position.y;
+        trans.SetPositionAndRotation(destPoint, Quaternion.identity);
+        trans.Rotate(new Vector3(0, 90 * (blockIndex / 8), 0));
+        players[playerIndex].StandingPos = blockIndex;
     }
 }

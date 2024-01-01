@@ -71,4 +71,16 @@ public class PlatformHelper : MonoBehaviour
         int index = Random.Range(0, platform.destinies.Length);
         return platform.destinies[index];
     }
+
+    public WalkingEvent GetSpecialWalkingEvent(WalkingEventType e)
+    {
+        return e switch
+        {
+            WalkingEventType.BG_FRIEND => platform.BoyGirlFriend,
+            WalkingEventType.CONSTRUCTION => platform.Construction,
+            WalkingEventType.BIKE_ACCIDENT => platform.BikeAccident,
+            WalkingEventType.DOG_BITE => platform.DogBite,
+            _ => null,
+        };
+    }
 }

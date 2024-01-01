@@ -416,5 +416,53 @@
                 }
             ]
         }
-    ]
+    ],
+    "BoyGirlFriend": {
+        "Title": "可以向朋友炫耀了ㄏㄏ",
+        "Message": "心情真好",
+        "Rewards": [
+            {
+                "Mode": "Add",
+                "Emotion": 5
+            },
+            {
+                "Mode": "Teleport",
+                "TpTarget": "Library"
+            }
+        ]
+    },
+    "Construction": {
+        "Title": "真的很煩",
+        "Message": "好心情都被搞壞了",
+        "Rewards": [
+            {
+                "Mode": "Add",
+                "Emotion": -2
+            }
+        ]
+    },
+    "BikeAccident": {
+        "Title": "再也不騎腳踏車了啦",
+        "Message": "到醫院休養一下好了",
+        "Rewards": [
+            {
+                "Mode": "Teleport",
+                "TpTarget": "Hospital"
+            }
+        ]
+    },
+    "DogBite": {
+        "Title": "好痛、好可怕喔...",
+        "Message": "心情真差，到醫院休養一下好了",
+        "Rewards": [
+            {
+                "Mode": "Add",
+                "Emotion": -1
+            },
+            {
+                "Mode": "Teleport",
+                "TpTarget": "Hospital"
+            }
+        ]
+    }
 }
