@@ -81,6 +81,10 @@ public class UiController : MonoBehaviour
             Block block = GetCurrentBlock();
             if (block.Type == "Department")
             {
+                if (animator.GetBool("CourseBoxOpen") == false)
+                {
+                    block.RefreshUnselectedCourse();
+                }
                 SetupCourseBox(block, currentPlayer);
                 animator.SetBool("CourseBoxOpen", true);
             } else
