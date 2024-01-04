@@ -402,9 +402,53 @@
                     "Power": -10
                 }
             ]
+        },
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
+        },
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
+        },
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
         }
     ],
     "destinies": [
+        {
+            "Title": "Title",
+            "Message": "Bruh",
+            "Rewards": [
+                {
+                    "Mode": "Add",
+                    "Emotion": -5,
+                    "Power": -10
+                }
+            ]
+        },
         {
             "Title": "Title",
             "Message": "Bruh",

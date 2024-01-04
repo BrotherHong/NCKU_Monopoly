@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public enum GameState {
     CHECK,
-    ROLL_DICE,
+    WAIT_ROLL_DICE,
+    DICE_ROLLING,
     PASS_START,
     MOVE,
     EXECUTE_FEATURE,

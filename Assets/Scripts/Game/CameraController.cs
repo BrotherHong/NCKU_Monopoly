@@ -18,6 +18,9 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] float movingProportion;
 
+    [SerializeField] Transform diceTransform;
+    [SerializeField] Vector3 diceOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,7 @@ public class CameraController : MonoBehaviour
             case CameraDirection.PARK: return parkCameraPosition;
             case CameraDirection.PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position + (playerTransform[GameStats.CurrentPlayerIndex].rotation * offsetFromPlayer);
             case CameraDirection.CLOSE_PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position + (playerTransform[GameStats.CurrentPlayerIndex].rotation * closeOffsetFromPlayer);
+            case CameraDirection.DICE: return diceTransform.position + diceOffset;
         }
 
         return Vector3.zero;
@@ -67,6 +71,7 @@ public class CameraController : MonoBehaviour
             case CameraDirection.PARK: return centerReference.position;
             case CameraDirection.PLAYER:
             case CameraDirection.CLOSE_PLAYER: return playerTransform[GameStats.CurrentPlayerIndex].position;
+            case CameraDirection.DICE: return diceTransform.position;
         }
 
         return Vector3.zero;

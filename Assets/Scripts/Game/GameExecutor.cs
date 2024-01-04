@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameExecutor : MonoBehaviour
 {
@@ -10,16 +11,29 @@ public class GameExecutor : MonoBehaviour
 
     public void RollTheDice()
     {
-        if (GameStats.currentState != GameState.ROLL_DICE) return;
+        if (GameStats.currentState != GameState.WAIT_ROLL_DICE) return;
         GameStats.UI.DiceResult = new System.Random().Next(1, 6+1);
-        GameStats.currentState = GameState.MOVE;
+        GameSettings.cameraDirection = CameraDirection.DICE;
+        GameStats.currentState = GameState.DICE_ROLLING;
     }
 
     public void ChangeToNextPlayer()
     {
-        GameStats.CurrentPlayerIndex = (GameStats.CurrentPlayerIndex + 1) % GameSettings.MAX_PLAYER;
-        GameStats.currentState = GameState.CHECK;
-        GameSettings.cameraDirection = CameraDirection.PLAYER;
+        if (!IsGameOver())
+        {
+            GameStats.CurrentPlayerIndex = (GameStats.CurrentPlayerIndex + 1) % GameSettings.MAX_PLAYER;
+            GameStats.currentState = GameState.CHECK;
+            GameSettings.cameraDirection = CameraDirection.PLAYER;
+        } else
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    private bool IsGameOver()
+    {
+        Player player = GameStats.GetCurrentPlayer();
+        return player.Credit >= GameSettings.TARGET_CREDIT;
     }
 
     public void ExecuteRewards(Player player, Reward[] rewards)

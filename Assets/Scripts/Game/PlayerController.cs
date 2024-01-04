@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
+            GameSettings.cameraDirection = CameraDirection.PLAYER;
+
             int playerIndex = GameStats.CurrentPlayerIndex;
             Vector3 destPoint = platformHelper.GetWalkingPoint((players[playerIndex].StandingPos + 1) % 32).position;
             destPoint.y = playerTransform[playerIndex].position.y;
