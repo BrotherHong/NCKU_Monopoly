@@ -9,18 +9,28 @@
         {
             "Type": "Department",
             "Name": "資訊系",
-            "Courses": [
-                {
-                    "Name": "程式設計(一)",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "視窗程式設計",
-                    "Type": "選修",
-                    "Credit": 3
-                }
-            ],
+          "Courses": [
+              {
+                "Name": "程式設計(一)",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "視窗程式設計",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "Linux系統程式設計",
+                "Type": "選修",
+                "Credit": 1
+              },
+              {
+                "Name": "演算法",
+                "Type": "必修",
+                "Credit": 3
+              }
+          ],
             "Color": "#B6BBC4"
         },
         {
@@ -33,9 +43,19 @@
                     "Credit": 3
                 },
                 {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
+                  "Name": "電路學",
+                  "Type": "必修",
+                  "Credit": 3
+                },
+                {
+                  "Name": "訊號與系統",
+                  "Type": "選修",
+                  "Credit": 3
+                },
+                {
+                  "Name": "電磁學",
+                  "Type": "必修",
+                  "Credit": 3
                 }
             ],
             "Color": "#B6BBC4"
@@ -56,16 +76,26 @@
             "Type": "Department",
             "Name": "牙醫系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "牙體形態學",
+                "Type": "必修",
+                "Credit":2
+              },
+              {
+                "Name": "局部補綴學實驗",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "牙科藥理學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "固定補綴學",
+                "Type": "必修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -73,16 +103,26 @@
             "Type": "Department",
             "Name": "機械系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "工程圖學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "機械製造",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "機動學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "工場實習",
+                "Type": "必修",
+                "Credit": 1
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -102,16 +142,26 @@
             "Type": "Department",
             "Name": "中文系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "國語語音學",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "聲韻學",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "現代小說欣賞及習作",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "中國思想史",
+                "Type": "必修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -119,16 +169,26 @@
             "Type": "Department",
             "Name": "台文系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "日治時期小說選讀",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "當代華文女性文學與批評",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "台語文與多媒體製作",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "初級新聞台語專訪",
+                "Type": "選修",
+                "Credit": 2
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -136,16 +196,26 @@
             "Type": "Department",
             "Name": "外文系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "進階英語字彙學習",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "語言測驗評量",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "英文作文",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "語言學研究學術論文寫作",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -159,16 +229,26 @@
             "Type": "Department",
             "Name": "建築系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "建築資訊模型實作",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "工程力學",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "現代主義後的建築思潮",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "建築職業倫理",
+                "Type": "選修",
+                "Credit": 2
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -194,16 +274,26 @@
             "Type": "Department",
             "Name": "企管系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "社群媒體行銷",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "組織發展與變革",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "作業管理",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "行銷策略",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -211,16 +301,26 @@
             "Type": "Department",
             "Name": "工設系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "機械設計原理",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "作品集策略及應用",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "產品設計",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "人類因素學",
+                "Type": "必修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -240,16 +340,26 @@
             "Type": "Department",
             "Name": "工資系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "資料庫管理",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "網頁程式開發",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "機率論",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "雲端行動應用",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -257,16 +367,16 @@
             "Type": "Department",
             "Name": "藥學系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "中醫藥概論",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "生物藥劑學",
+                "Type": "必修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -274,16 +384,26 @@
             "Type": "Department",
             "Name": "護理系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "生物統計學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "社區護理學",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "免疫學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "臨床藥物動態學",
+                "Type": "必修",
+                "Credit": 2
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -297,16 +417,26 @@
             "Type": "Department",
             "Name": "法律系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "民法物權編",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "保險法",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "國際組織法",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "刑法總則",
+                "Type": "必修",
+                "Credit": 4
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -314,16 +444,26 @@
             "Type": "Department",
             "Name": "統計系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "統計軟體與繪圖",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "抽樣調查",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "類別資料分析",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "巨量資料分析",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -331,16 +471,26 @@
             "Type": "Department",
             "Name": "化工系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "質能均衡",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "化工程序實驗",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "化學反應工程",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "高分子物理",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -354,16 +504,26 @@
             "Type": "Department",
             "Name": "醫學系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "分子基因體學",
+                "Type": "選修",
+                "Credit": 2
+              },
+              {
+                "Name": "家庭醫學及實習",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "神經解剖學",
+                "Type": "必修",
+                "Credit": 2
+              },
+              {
+                "Name": "外科學",
+                "Type": "必修",
+                "Credit": 1
+              }
             ],
             "Color": "#B6BBC4"
         },
@@ -377,90 +537,161 @@
             "Type": "Department",
             "Name": "航太系",
             "Courses": [
-                {
-                    "Name": "電子學",
-                    "Type": "必修",
-                    "Credit": 3
-                },
-                {
-                    "Name": "電路學",
-                    "Type": "必修",
-                    "Credit": 3
-                }
+              {
+                "Name": "飛行力學",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "飛機設計",
+                "Type": "必修",
+                "Credit": 3
+              },
+              {
+                "Name": "空氣動力學",
+                "Type": "選修",
+                "Credit": 3
+              },
+              {
+                "Name": "潔淨燃燒與污染防治",
+                "Type": "選修",
+                "Credit": 3
+              }
             ],
             "Color": "#B6BBC4"
         }
     ],
     "chances": [
         {
-            "Title": "Title",
-            "Message": "Bruh",
+            "Title": "火災警報",
+            "Message": "所有人員請注意，請所有人員撤離",
             "Rewards": [
                 {
                     "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
+                    "Emotion": -2,
+                    "Power": 0
                 }
             ]
         },
         {
-            "Title": "Title",
-            "Message": "Bruh",
+            "Title": "玩社團",
+            "Message": "加入社團好開心YA~~",
             "Rewards": [
                 {
                     "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
+                    "Emotion": 2,
+                    "Power": 0
                 }
             ]
         },
         {
-            "Title": "Title",
-            "Message": "Bruh",
+            "Title": "踏溯台南",
+            "Message": "踏溯真的好有趣(才有鬼)",
             "Rewards": [
                 {
                     "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
+                    "Credit": 1,
+                    "Emotion": -1,
+                    "Power": -5
                 }
             ]
         },
         {
-            "Title": "Title",
-            "Message": "Bruh",
-            "Rewards": [
-                {
-                    "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
-                }
-            ]
-        }
+          "Title": "服學三",
+          "Message": "今天去當志工好開心",
+          "Rewards": [
+            {
+              "Mode": "Add",
+              "Credit": 1,
+              "Emotion": 1,
+              "Power": -5
+            }
+          ]
+        },
+      {
+        "Title": "腳踏車被偷",
+        "Message": "XXX我的腳踏車被偷",
+        "Rewards": [
+          {
+            "Mode": "Add",
+            "Credit": 0,
+            "Emotion": -5,
+            "Power": 0
+          }
+        ]
+      },
+      {
+        "Title": "再骰一次",
+        "Message": "運氣之神在眷顧你",
+        "Rewards": [
+          {
+            "Mode": "RollAgain"
+          }
+        ]
+      }
     ],
-    "destinies": [
+  "destinies": [
+    {
+      "Title": "多益",
+      "Message": "我考了990分!",
+      "Rewards": [
         {
-            "Title": "Title",
-            "Message": "Bruh",
-            "Rewards": [
-                {
-                    "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
-                }
-            ]
+          "Mode": "Add",
+          "Credit": 4,
+          "Emotion": 5,
+          "Power": -10
+        }
+      ]
+    },
+    {
+      "Title": "讀視窗",
+      "Message": "每個禮拜作業超多",
+      "Rewards": [
+        {
+          "Mode": "Add",
+          "Emotion": -20,
+          "Power": -10
+        }
+      ]
+    },
+    {
+      "Title": "被二一",
+      "Message": "我覺得我要完蛋了!!!",
+      "Rewards": [
+        {
+          "Mode": "Add",
+          "Emotion": -5,
+          "Power": 0
         },
         {
-            "Title": "Title",
-            "Message": "Bruh",
-            "Rewards": [
-                {
-                    "Mode": "Add",
-                    "Emotion": -5,
-                    "Power": -10
-                }
-            ]
+          "Mode": "Divide",
+          "Credit": 2
         }
-    ],
+      ]
+    },
+    {
+      "Title": "成為卷哥/卷姐",
+      "Message": "分數沒100不可能",
+      "Rewards": [
+        {
+          "Mode": "Add",
+          "Emotion": 20,
+          "Power": 0
+        }
+      ]
+    },
+    {
+      "Title": "要我們在危難中相愛",
+      "Message": "I Love You <3",
+      "Rewards": [
+        {
+          "Mode": "All_Add",
+          "Emotion": 3,
+          "Power": 0
+        }
+      ]
+    }
+  ],
     "BoyGirlFriend": {
         "Title": "可以向朋友炫耀了ㄏㄏ",
         "Message": "心情真好",

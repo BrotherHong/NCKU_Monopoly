@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -89,7 +88,10 @@ public class UiController : MonoBehaviour
                 animator.SetBool("CourseBoxOpen", true);
             } else
             {
-                SetupInfoBox(block);
+                if (animator.GetBool("InfoBoxOpen") == false)
+                {
+                    SetupInfoBox(block);
+                }
                 animator.SetBool("InfoBoxOpen", true);
             }
         } else
@@ -139,8 +141,8 @@ public class UiController : MonoBehaviour
     {
         Player currentPlayer = GetCurrentPlayer();
         Block block = GetCurrentBlock();
-        if (block.specialEvent != null) gameExecutor.ExecuteRewards(currentPlayer, block.specialEvent.Rewards);
         GameStats.currentState = GameState.NEXT_PLAYER;
+        if (block.specialEvent != null) gameExecutor.ExecuteRewards(currentPlayer, block.specialEvent.Rewards);
         animator.SetBool("InfoBoxOpen", false);
     }
 
@@ -262,20 +264,80 @@ public class UiController : MonoBehaviour
             {
                 if (reward.Mode == "Add")
                 {
+                    if (reward.Credit != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("學分 " + string.Format("{0:+#;-#}", reward.Credit));
+                        sb.AppendLine();
+                    }
+
                     if (reward.Emotion != 0)
                     {
                         sb.Append(" - ");
                         sb.Append("心情 " + string.Format("{0:+#;-#}", reward.Emotion));
                         sb.AppendLine();
                     }
-                    
+
                     if (reward.Power != 0)
                     {
                         sb.Append(" - ");
                         sb.Append("體力 " + string.Format("{0:+#;-#}", reward.Power));
                         sb.AppendLine();
                     }
-                } else if (reward.Mode == "Teleport")
+                }
+                else if (reward.Mode == "Divide")
+                {
+                    if (reward.Credit != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("學分 " + string.Format("除以{0}", reward.Credit));
+                        sb.AppendLine();
+                    }
+
+                    if (reward.Emotion != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("心情 " + string.Format("除以{0}", reward.Emotion));
+                        sb.AppendLine();
+                    }
+
+                    if (reward.Power != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("體力 " + string.Format("除以{0}", reward.Power));
+                        sb.AppendLine();
+                    }
+                }
+                else if (reward.Mode == "All_Add")
+                {
+                    if (reward.Credit != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("所有玩家 學分 " + string.Format("{0:+#;-#}", reward.Credit));
+                        sb.AppendLine();
+                    }
+
+                    if (reward.Emotion != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("所有玩家 心情 " + string.Format("{0:+#;-#}", reward.Emotion));
+                        sb.AppendLine();
+                    }
+
+                    if (reward.Power != 0)
+                    {
+                        sb.Append(" - ");
+                        sb.Append("所有玩家 體力 " + string.Format("{0:+#;-#}", reward.Power));
+                        sb.AppendLine();
+                    }
+                }
+                else if (reward.Mode == "RollAgain")
+                {
+                    sb.Append(" - ");
+                    sb.Append("重骰一次!");
+                    sb.AppendLine();
+                }
+                else if (reward.Mode == "Teleport")
                 {
                     sb.Append($" - 被移動至 {MyTools.TranslateCorner(reward.TpTarget)}");
                     sb.AppendLine();

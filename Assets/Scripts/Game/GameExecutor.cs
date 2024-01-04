@@ -42,9 +42,28 @@ public class GameExecutor : MonoBehaviour
         {
             if (reward.Mode == "Add")
             {
+                player.Credit += reward.Credit;
                 player.Emotion += reward.Emotion;
                 player.Power += reward.Power;
-            } else if (reward.Mode == "Teleport")
+            } 
+            else if (reward.Mode == "Divide") 
+            {
+                if (reward.Credit != 0) player.Credit /= reward.Credit;
+                if (reward.Emotion != 0) player.Emotion /= reward.Emotion;
+                if (reward.Power != 0) player.Power /= reward.Power;
+            }
+            else if (reward.Mode == "All_Add")
+            {
+                List<Player> playerList = GameStats.GetPlayerList();
+                playerList.ForEach(p => p.Credit += reward.Credit);
+                playerList.ForEach(p => p.Emotion += reward.Emotion);
+                playerList.ForEach(p => p.Power += reward.Power);
+            }
+            else if (reward.Mode == "RollAgain")
+            {
+                GameStats.currentState = GameState.WAIT_ROLL_DICE;
+            }
+            else if (reward.Mode == "Teleport")
             {
                 CornerBlock corner = CornerBlock.DORM;
                 if (reward.TpTarget == "Dorm") corner = CornerBlock.DORM;
