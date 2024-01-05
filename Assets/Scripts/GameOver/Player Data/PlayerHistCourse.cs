@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class PlayerClass : MonoBehaviour
+public class PlayerHistCourse : MonoBehaviour
 {
     List<Player> playerList;
     public int index;
@@ -19,11 +19,11 @@ public class PlayerClass : MonoBehaviour
     void Update()
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine("目前修的課程: ");
-        foreach (Course i in playerList[index].CurrentCourse)
+        sb.AppendLine("課程歷史紀錄: ");
+        foreach (Course i in playerList[index].CourseHistory)
         {
             sb.AppendLine(i.ToString());
         }
-        transform.Find("Scroll View").Find("Viewport").Find("Content").GetComponent<Text>().text =  sb.ToString();
+        transform.GetComponent<Text>().text =  sb.ToString();
     }
 }

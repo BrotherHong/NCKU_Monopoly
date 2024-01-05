@@ -40,10 +40,10 @@ public class UiController : MonoBehaviour
     void Start()
     {
         playerList = GameStats.GetPlayerList();
-        playerList.Add(new Player("Dock", "Image/dock"));
-        playerList.Add(new Player("Mr. Egg", "Image/egg_head"));
-        playerList.Add(new Player("Saugy", "Image/saugy"));
-        playerList.Add(new Player("Traffic Cone", "Image/cones"));
+        //playerList.Add(new Player("Dock", "Image/dock"));
+        //playerList.Add(new Player("Mr. Egg", "Image/egg_head"));
+        //playerList.Add(new Player("Saugy", "Image/saugy"));
+        //playerList.Add(new Player("Traffic Cone", "Image/cones"));
 
         for (int i = 0; i < playerList.Count; i++)
         {

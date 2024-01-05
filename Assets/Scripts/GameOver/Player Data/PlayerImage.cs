@@ -12,9 +12,6 @@ public class PlayerImage : MonoBehaviour
     void Start()
     {
         playerList = GameStats.GetPlayerList();
-
-        
-
     }
 
     private void Update()

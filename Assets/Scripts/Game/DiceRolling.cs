@@ -7,6 +7,8 @@ public class DiceRolling : MonoBehaviour
 
     [SerializeField] float rollTime;
     [SerializeField] float stopTime;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip diceAudio;
 
     float timeElapsed;
     Quaternion targetRotation;
@@ -21,7 +23,10 @@ public class DiceRolling : MonoBehaviour
     {
         if (GameStats.currentState == GameState.DICE_ROLLING)
         {
-
+            if (timeElapsed == 0)
+            {
+                audioSource.PlayOneShot(diceAudio);
+            }
             if (timeElapsed >= stopTime)
             {
                 targetRotation = GetPointRotation(GameStats.UI.DiceResult);

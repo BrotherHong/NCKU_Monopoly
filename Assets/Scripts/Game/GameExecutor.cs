@@ -73,13 +73,6 @@ public class GameExecutor : MonoBehaviour
                 playerController.TeleportPlayerToCorner(GameStats.CurrentPlayerIndex, corner);
             }
         }
-        FixPlayerStats(player);
-    }
-
-    private void FixPlayerStats(Player player)
-    {
-        player.Emotion = Math.Max(0, Math.Min(GameSettings.MAX_EMOTION, player.Emotion));
-        player.Power = Math.Max(0, Math.Min(GameSettings.MAX_POWER, player.Power));
     }
 
     public void OnPlayerPassStart(Player player)
@@ -93,7 +86,6 @@ public class GameExecutor : MonoBehaviour
             course.ResetOwner();
         }
         player.CurrentCourse.Clear();
-        FixPlayerStats(player);
     }
 
     public void SelectCourse(int courseIndex)
@@ -126,7 +118,6 @@ public class GameExecutor : MonoBehaviour
         course.Owner = player.Name;
         player.CurrentCourse.Add(course);
         player.Power -= powerCost;
-        FixPlayerStats(player);
     }
 
     public void ExecuteEmoPenalty(Player player)

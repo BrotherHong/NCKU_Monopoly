@@ -16,10 +16,21 @@ public static class GameStats
     public static int CurrentPlayerIndex = 0;
     public static GameState currentState = GameState.CHECK;
 
-    private static List<Player> _players = new List<Player>();
+    private static List<Player> _players;
+
+    public static void Reset()
+    {
+        CurrentPlayerIndex = 0;
+        currentState = GameState.CHECK;
+        GetPlayerList().Clear();
+    }
 
     public static List<Player> GetPlayerList()
     {
+        if (_players == null)
+        {
+            _players = new List<Player>();
+        }
         return _players;
     }
 

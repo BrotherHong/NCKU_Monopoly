@@ -1,13 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 public class Player
 {
+    private int _credit;
+    private int _emotion;
+    private int _power;
+
     public string Name { get; set; }
-    public int Credit { get; set; }
-    public int Emotion { get; set; }
-    public int Power { get; set; }
+    public int Credit
+    {
+        get => _credit;
+        set => _credit = Math.Max(0, Math.Min(GameSettings.TARGET_CREDIT, value));
+    }
+    public int Emotion
+    {
+        get => _emotion;
+        set => _emotion = Math.Max(0, Math.Min(GameSettings.MAX_EMOTION, value));
+    }
+    public int Power
+    {
+        get => _power;
+        set => _power = Math.Max(0, Math.Min(GameSettings.MAX_POWER, value));
+    }
     public string ImagePath { get; set; }
     public int StandingPos { get; set; }
     public int GrabCount { get; set; }
